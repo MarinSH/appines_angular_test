@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, input } from '@angular/core';
 import {Spell} from "../../models/spell";
 
 @Component({
@@ -10,7 +10,7 @@ import {Spell} from "../../models/spell";
 export class SpellCardComponent {
 
   // TODO : migrate with new input signal
-  @Input({ required: true }) spell!: Spell;
+  spell = input.required<Spell | undefined>();
 
   constructor() { }
 

@@ -16,17 +16,22 @@
 
     <div class="space-y-4">
       <!-- TODO : replace *ngIF by new Angular Control Flow @if / @else -->
-      <ng-container *ngIf="searchInput.length > 0">
+      @if (searchInput.length > 0) {
         <!--  TODO : replace *ngFor by new Angular Control Flow -->
-        <app-spell-card *ngFor="let spell of filteredSpells" [spell]="spell"></app-spell-card>
+        @for (spell of filteredSpells(); track spell.id) {
+            <app-spell-card [spell]="spell"></app-spell-card>
+        }
         <!-- TODO : add empty message if no results -->
-      </ng-container>
-
-      <ng-container *ngIf="searchInput.length <= 0">
+        @if (filteredSpells.length === 0) {
+            <p>No spells found.</p>
+        }
+      } @else {
         <!--  TODO : replace *ngFor by new Angular Control Flow -->
-        <app-spell-card *ngFor="let spell of spells" [spell]="spell"></app-spell-card>
-      </ng-container>
-    </div>
+          @for (spell of spellsSignal(); track spell.id) {
+              <app-spell-card [spell]="spell"></app-spell-card>
+          }
+      }
+      </div>
 
 
   </div>

@@ -42,9 +42,14 @@
 /* @import '@ionic/angular/css/palettes/dark.system.css'; */
 
 :root {
-  --ion-background-color: #132D32
+  --ion-color-primary-100: #DBE6E9;
+  --ion-color-primary-200: #53A7BC;
+  --ion-color-primary-300: #4B91A1;
+  --ion-color-primary-400: #004755;
+  --ion-color-primary-900: #132D32;
+  --ion-background-color: #132D32;
 }
-
+$dark:--ion-color-primary-900;
 ion-title {
   --color: #F6F8F9;
   font-family: "Montserrat Alternates", sans-serif;
@@ -63,5 +68,5 @@ ion-title.title-large {
 }
 
 ion-toolbar {
-  --background: #132D32
+  --background: #132D32;
 }
