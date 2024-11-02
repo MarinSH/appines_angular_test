@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IonSearchbar } from "@ionic/angular/standalone";
+import { IonSearchbar } from '@ionic/angular/standalone';
 import { SearchbarService } from 'src/app/services/searchbar/searchbar.service';
 
 @Component({
@@ -8,10 +8,7 @@ import { SearchbarService } from 'src/app/services/searchbar/searchbar.service';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.scss'],
   standalone: true,
-  imports: [
-    IonSearchbar, 
-    FormsModule
-  ]
+  imports: [IonSearchbar, FormsModule],
 })
 export class SearchbarComponent {
   searchType = input<'spell' | 'wizard'>('spell');
@@ -23,7 +20,7 @@ export class SearchbarComponent {
   constructor(private searchService: SearchbarService) {}
 
   updateSearch(event: CustomEvent) {
-    const query = event.detail.value; 
+    const query = event.detail.value;
     this.searchService.setActiveSearchQuery(this.currentSearchType, query);
   }
 }

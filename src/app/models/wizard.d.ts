@@ -11,7 +11,7 @@ export interface Wizard {
   species: string;
   gender: string;
   house: string;
-  dateOfBirth: string; 
+  dateOfBirth: string;
   yearOfBirth: number;
   wizard: boolean;
   ancestry: string;
@@ -24,5 +24,5 @@ export interface Wizard {
   actor: string;
   alternate_actors: string[];
   alive: boolean;
-  image: string; 
+  image: string;
 }

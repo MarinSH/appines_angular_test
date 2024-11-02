@@ -4,7 +4,7 @@ import { Spell } from 'src/app/models/spell';
 import { Wizard } from 'src/app/models/wizard';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HpApiService {
   private apiUrl = 'https://hp-api.onrender.com/api';
@@ -12,18 +12,22 @@ export class HpApiService {
   spellSignal = signal<Spell[]>([]);
   wizardSignal = signal<Wizard[]>([]);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // TODO : move in a specific service
   fetchSpells(): void {
-    this.http.get<Spell[]>(`${this.apiUrl}/spells`).subscribe((res: Spell[])=> {
-      this.spellSignal.set(res);
-    });
+    this.http
+      .get<Spell[]>(`${this.apiUrl}/spells`)
+      .subscribe((res: Spell[]) => {
+        this.spellSignal.set(res);
+      });
   }
 
   fetchWizards(): void {
-    this.http.get<Wizard[]>(`${this.apiUrl}/characters`).subscribe((res: Wizard[])=> {
-      this.wizardSignal.set(res);
-    });
+    this.http
+      .get<Wizard[]>(`${this.apiUrl}/characters`)
+      .subscribe((res: Wizard[]) => {
+        this.wizardSignal.set(res);
+      });
   }
 }

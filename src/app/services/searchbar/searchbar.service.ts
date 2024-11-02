@@ -1,12 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SearchbarService {
   private searchQueries = {
-    spell: signal<string>(''), 
+    spell: signal<string>(''),
     wizard: signal<string>(''),
   };
 
@@ -14,11 +13,11 @@ export class SearchbarService {
     if (this.searchQueries[type]) {
       this.searchQueries[type].set(query);
     } else {
-      console.error(`Type de recherche inconnu : ${type}`); 
+      console.error(`Type de recherche inconnu : ${type}`);
     }
   }
 
   getActiveSearchQuery(type: 'spell' | 'wizard') {
-    return this.searchQueries[type]; 
+    return this.searchQueries[type];
   }
 }

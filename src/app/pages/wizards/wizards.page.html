@@ -15,10 +15,13 @@
 
     <div class="space-x-5 sm:space-x-6">
       @for (wizard of filteredWizards(); track wizard.id) {
-        <app-wizard-card [wizard]="wizard"></app-wizard-card>
-      }
-      @if (filteredWizards().length === 0) {
-        <p class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5">No wizards found.</p>
+      <app-wizard-card [wizard]="wizard"></app-wizard-card>
+      } @if (filteredWizards().length === 0) {
+      <p
+        class="card rounded-xl border border-primary-300 bg-primary-400 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom sm:text-xl"
+      >
+        No wizards found.
+      </p>
       }
     </div>
   </div>

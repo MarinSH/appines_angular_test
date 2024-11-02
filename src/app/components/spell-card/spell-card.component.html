@@ -1,5 +1,10 @@
-<div class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5 hover:cursor-pointer">
-  <p>{{spell()?.name}}</p>
-  <p class="description text-primary-200 font-base font-medium sm:text-xl pt-1 sm:pt-3 font-montserratSimp">
-  {{spell()?.description}}</p>
+<div
+  class="card rounded-xl border border-primary-300 bg-primary-400 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom hover:cursor-pointer sm:text-xl"
+>
+  <p>{{ spell()?.name }}</p>
+  <p
+    class="description font-base pt-1 font-montserratSimp font-medium text-primary-200 sm:pt-3 sm:text-xl"
+  >
+    {{ spell()?.description }}
+  </p>
 </div>

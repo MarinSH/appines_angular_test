@@ -8,14 +8,12 @@ import { Wizard } from 'src/app/models/wizard';
   standalone: true,
 })
 export class WizardCardComponent {
-
   wizard = input.required<Wizard | undefined>();
-  
-  constructor() { }
+
+  constructor() {}
 
   formattedAlternateNames = computed(() => {
-    const wizard = this.wizard(); 
-    return wizard?.alternate_names.join(' · ') || ''; 
+    const wizard = this.wizard();
+    return wizard?.alternate_names.join(' · ') || '';
   });
-
 }

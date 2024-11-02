@@ -1,8 +1,17 @@
-<div class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5 hover:cursor-pointer flex items-center space-x-4">
-  <img [src]="wizard()?.image" class="w-16 h-16 rounded-full object-cover" alt="{{ wizard()?.name }}">
+<div
+  class="card flex items-center space-x-4 rounded-xl border border-primary-300 bg-primary-400 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom hover:cursor-pointer sm:text-xl"
+>
+  <img
+    [src]="wizard()?.image"
+    class="h-16 w-16 rounded-full object-cover"
+    alt="{{ wizard()?.name }}"
+  />
   <div>
-    <p>{{wizard()?.name}}</p>
-    <p class="description text-primary-200 font-base font-medium sm:text-xl pt-1 sm:pt-3 font-montserratSimp">
-    {{ formattedAlternateNames() }}</p>
+    <p>{{ wizard()?.name }}</p>
+    <p
+      class="description font-base pt-1 font-montserratSimp font-medium text-primary-200 sm:pt-3 sm:text-xl"
+    >
+      {{ formattedAlternateNames() }}
+    </p>
   </div>
 </div>

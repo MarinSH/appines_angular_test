@@ -8,11 +8,13 @@ export const tabsRoutes: Routes = [
     children: [
       {
         path: 'wizards',
-        loadComponent: () => import('../wizards/wizards.page').then( m => m.WizardsPage)
+        loadComponent: () =>
+          import('../wizards/wizards.page').then(m => m.WizardsPage),
       },
       {
         path: 'spells',
-        loadComponent: () => import('../spells/spells.page').then( m => m.SpellsPage)
+        loadComponent: () =>
+          import('../spells/spells.page').then(m => m.SpellsPage),
       },
       {
         path: '',

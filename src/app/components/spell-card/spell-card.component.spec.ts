@@ -9,8 +9,8 @@ describe('SpellCardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpellCardComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [SpellCardComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SpellCardComponent);
