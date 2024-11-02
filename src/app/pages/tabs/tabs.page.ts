@@ -1,4 +1,4 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
+import { Component, EnvironmentInjector, inject, Signal, signal } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {peopleOutline, flameOutline} from 'ionicons/icons';
@@ -11,7 +11,8 @@ import {peopleOutline, flameOutline} from 'ionicons/icons';
   imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
 })
 export class TabsPage {
-  public environmentInjector = inject(EnvironmentInjector);
+  public environmentInjector: Signal<EnvironmentInjector> = signal(inject(EnvironmentInjector));
+
 
   constructor() {
     addIcons({peopleOutline, flameOutline });
