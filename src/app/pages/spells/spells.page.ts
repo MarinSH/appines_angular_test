@@ -22,19 +22,23 @@ export class SpellsPage implements OnInit {
   searchInput = signal<string>('');
 
   // TODO : use computed signal
-  protected filteredSpells = signal<Spell[]>([]);
+  protected filteredSpells = computed(() => {
+    const search = this.searchInput().toLowerCase().trim();
+    const spells = this.spellsSignal();
+
+    if (!search) {
+      return spells;
+    }
+
+    return spells.filter(spell =>
+      spell.name.toLowerCase().includes(search)
+    );
+  });
 
   constructor(private hpApiService: HpApiService) { }
 
   ngOnInit() {
     this.hpApiService.fetchSpells();
   }
-
-  filterSpell = computed(() => {
-    return this.spellsSignal().filter(spell =>
-      spell.name.toLowerCase().includes(this.searchInput().toLowerCase())
-    );
-    
-  });
 
 }
