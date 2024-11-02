@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {IonContent, IonHeader, IonSearchbar, IonTitle, IonToolbar} from '@ionic/angular/standalone';
-import {HttpClient} from "@angular/common/http";
 import {SpellCardComponent} from "../../components/spell-card/spell-card.component";
 import {Spell} from "../../models/spell";
+import { HpApiService } from 'src/app/services/hpApi/hp-api.service';
 
 @Component({
   selector: 'app-spells',
@@ -16,29 +16,29 @@ import {Spell} from "../../models/spell";
 export class SpellsPage implements OnInit {
 
   // TODO : use signal
-  spells: Spell[] = [];
+  spellsSignal = this.hpApiService.spellSignal;
 
   // TODO : use signal
-  searchInput: string = '';
+  searchInput = signal<string>('');
 
   // TODO : use computed signal
-  protected filteredSpells: Spell[] = [];
+  protected filteredSpells = computed(() => {
+    const search = this.searchInput().toLowerCase().trim();
+    const spells = this.spellsSignal();
 
-  constructor(private http: HttpClient) { }
+    if (!search) {
+      return spells;
+    }
+
+    return spells.filter(spell =>
+      spell.name.toLowerCase().includes(search)
+    );
+  });
+
+  constructor(private hpApiService: HpApiService) { }
 
   ngOnInit() {
-    this.fetchSpells();
-  }
-
-  fetchSpells() {
-    // TODO : move in a specific service
-    this.http.get<Spell[]>('https://hp-api.onrender.com/api/spells').subscribe((res: Spell[]) => {
-      this.spells = res;
-    })
-  }
-
-  filterSpell() {
-    this.filteredSpells = this.spells.filter(spell => spell.name.toLowerCase().includes(this.searchInput.toLowerCase() || ''))
+    this.hpApiService.fetchSpells();
   }
 
 }

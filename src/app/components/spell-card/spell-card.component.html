@@ -1,4 +1,5 @@
-<div class="p-5 card">
-  <p>{{spell.name}}</p>
-  <p class="description">{{spell.description}}</p>
+<div class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5 hover:cursor-pointer">
+  <p>{{spell()?.name}}</p>
+  <p class="description text-primary-200 font-base font-medium sm:text-xl pt-1 sm:pt-3 font-montserratSimp">
+  {{spell()?.description}}</p>
 </div>
