@@ -1,0 +1,8 @@
+<div class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5 hover:cursor-pointer flex items-center space-x-4">
+  <img [src]="wizard()?.image" class="w-16 h-16 rounded-full object-cover" alt="{{ wizard()?.name }}">
+  <div>
+    <p>{{wizard()?.name}}</p>
+    <p class="description text-primary-200 font-base font-medium sm:text-xl pt-1 sm:pt-3 font-montserratSimp">
+    {{ formattedAlternateNames() }}</p>
+  </div>
+</div>

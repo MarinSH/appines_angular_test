@@ -10,4 +10,16 @@
       <ion-title size="large">Wizards</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="m-4 tablet:m-8">
+    <app-searchbar [searchType]="'wizard'"></app-searchbar>
+
+    <div class="space-x-5 sm:space-x-6">
+      @for (wizard of filteredWizards(); track wizard.id) {
+        <app-wizard-card [wizard]="wizard"></app-wizard-card>
+      }
+      @if (filteredWizards().length === 0) {
+        <p class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5">No wizards found.</p>
+      }
+    </div>
+  </div>
 </ion-content>
