@@ -1,46 +1,61 @@
-
 @if (!hideHeader){
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-button (click)="goBack()" class="custom-button p-0" fill="clear">
-        <ion-icon aria-hidden="true" name="chevron-back-outline" class="size-8 p-3"></ion-icon>
-      </ion-button>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="custom-button p-0" fill="clear">
+      <ion-icon
+        aria-hidden="true"
+        name="chevron-back-outline"
+        class="size-8 p-3"
+      ></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 }
 
 <ion-content [fullscreen]="true">
-  <div class="relative h-[340px] tablet:h-[458px]  lg:h-2/3">
-    <ion-button (click)="goBack()" class="absolute top-16 left-5 custom-button p-0  tablet:left-10" fill="clear">
-      <ion-icon aria-hidden="true" name="chevron-back-outline" class="size-8 p-3">
-      </ion-icon>
+  <div class="relative h-[340px] tablet:h-[458px] lg:h-2/3">
+    <ion-button
+      (click)="goBack()"
+      class="custom-button absolute left-5 top-16 p-0 tablet:left-10"
+      fill="clear"
+    >
+      <ion-icon
+        aria-hidden="true"
+        name="chevron-back-outline"
+        class="size-8 p-3"
+      ></ion-icon>
     </ion-button>
     <img
       [src]="wizardImage()"
-      class="w-full h-full object-cover "
+      class="h-full w-full object-cover"
       [alt]="wizardSignal()?.name || 'Default image'"
     />
-    <div class="absolute bottom-0 left-0 right-0 h-[74px] bg-gradient-to-b from-transparent to-primary-900"></div>
+    <div
+      class="absolute bottom-0 left-0 right-0 h-[74px] bg-gradient-to-b from-transparent to-primary-900"
+    ></div>
   </div>
 
-  <div class="mx-5 my-8 tablet:m-10 text-primary-100 space-y-9">
+  <div class="mx-5 my-8 space-y-9 text-primary-100 tablet:m-10">
     <div class="pb-9">
       <div class="pb-5">
-        <p class="text-2xl font-montserrat font-bold pb-2 tablet:text-3xl tablet:pb-3">{{ wizardSignal()?.name }}</p>
+        <p
+          class="pb-2 font-montserrat text-2xl font-bold tablet:pb-3 tablet:text-3xl"
+        >
+          {{ wizardSignal()?.name }}
+        </p>
         <p>{{ formattedAlternateNames() }}</p>
       </div>
       @for (chip of chips(); track $index) {
-        <ion-chip [ngClass]="chip.class" class="capitalize pl-2">{{ chip.label }}</ion-chip>
+      <ion-chip [ngClass]="chip.class" class="pl-2 capitalize">
+        {{ chip.label }}
+      </ion-chip>
       }
     </div>
-    
+
     @if (isLoading()) {
-      <ion-spinner></ion-spinner>
-    } @else {
-      @if (wizardSignal()) {
-        <app-wizard-card-info [wizard]="wizardSignal()!" ></app-wizard-card-info>
-      }
-    }
+    <ion-spinner></ion-spinner>
+    } @else { @if (wizardSignal()) {
+    <app-wizard-card-info [wizard]="wizardSignal()!"></app-wizard-card-info>
+    } }
   </div>
-  
 </ion-content>

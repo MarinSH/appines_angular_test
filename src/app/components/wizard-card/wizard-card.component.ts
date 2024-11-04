@@ -14,7 +14,6 @@ export class WizardCardComponent {
   wizardSignal = this.hpApiService.wizardSignal;
   private router = inject(Router);
 
-
   formattedAlternateNames = computed(() => {
     const wizard = this.wizard();
     return wizard?.alternate_names.join(' · ') || '';
@@ -22,10 +21,12 @@ export class WizardCardComponent {
 
   constructor(private hpApiService: HpApiService) {}
 
-
   goToWizardInfo(wizardName?: string): void {
-    if (wizardName) { 
-      this.router.navigate(['/wizards/wizard-info', encodeURIComponent(wizardName)]);
+    if (wizardName) {
+      this.router.navigate([
+        '/wizards/wizard-info',
+        encodeURIComponent(wizardName),
+      ]);
     } else {
       console.error('Le nom du sorcier est indéfini.');
     }

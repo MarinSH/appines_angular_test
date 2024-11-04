@@ -34,7 +34,7 @@ export class HpApiService {
 
   fetchWizardById(id: string): void {
     this.http.get<Wizard[]>(`${this.apiUrl}/characters`).subscribe({
-      next: (data) => {
+      next: data => {
         const wizard = data.find(character => character.id === id);
         if (wizard) {
           this.wizardInfoSignal.set(wizard);
@@ -42,7 +42,8 @@ export class HpApiService {
           console.error('Wizard not found ID:', id);
         }
       },
-      error: (error) => console.error('Error when retrieving wizard information:', error),
+      error: error =>
+        console.error('Error when retrieving wizard information:', error),
     });
   }
 }

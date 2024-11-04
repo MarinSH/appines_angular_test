@@ -1,21 +1,20 @@
 <div
-(click)="goToWizardInfo(wizard()?.id)"
+  (click)="goToWizardInfo(wizard()?.id)"
   class="card flex items-center space-x-4 rounded-xl border border-primary-400 bg-primary-800 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom hover:cursor-pointer tablet:text-xl"
 >
-  @if (wizard()?.image){
+  @if (wizard()?.image) {
     <img
       [src]="wizard()?.image"
-      class="h-16 w-16 rounded-full object-cover flex-shrink-0"
+      class="h-16 w-16 flex-shrink-0 rounded-full object-cover"
       alt="{{ wizard()?.name }}"
     />
   } @else {
-    <span class="h-16 w-16 items-center justify-center flex text-3xl">🧙‍♂️</span>
+    <span class="flex h-16 w-16 items-center justify-center text-3xl">🧙‍♂️</span>
   }
-  <div class="overflow-hidden w-full">
+  <div class="w-full overflow-hidden">
     <p>{{ wizard()?.name }}</p>
     <p
-      class="pt-1 font-montserratSimp font-medium text-primary-200  overflow-hidden text-ellipsis whitespace-nowrap w-full
-      tablet:pt-3 tablet:text-xl"
+      class="w-full overflow-hidden text-ellipsis whitespace-nowrap pt-1 font-montserratSimp font-medium text-primary-200 tablet:pt-3 tablet:text-xl"
     >
       {{ formattedAlternateNames() }}
     </p>

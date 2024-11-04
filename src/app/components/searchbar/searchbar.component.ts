@@ -23,5 +23,4 @@ export class SearchbarComponent {
     const query = event.detail.value;
     this.searchService.setActiveSearchQuery(this.currentSearchType, query);
   }
-  
 }

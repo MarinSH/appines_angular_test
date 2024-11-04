@@ -1,13 +1,21 @@
 import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon, IonChip, IonSpinner } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonIcon,
+  IonChip,
+  IonSpinner,
+} from '@ionic/angular/standalone';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HpApiService } from 'src/app/services/hpApi/hp-api.service';
 import { chevronBackOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { WizardCardInfoComponent } from 'src/app/components/wizard-card-info/wizard-card-info.component';
-
 
 @Component({
   selector: 'app-wizard-info',
@@ -15,7 +23,7 @@ import { WizardCardInfoComponent } from 'src/app/components/wizard-card-info/wiz
   styleUrls: ['./wizard-info.page.scss'],
   standalone: true,
   imports: [
-    IonSpinner, 
+    IonSpinner,
     IonChip,
     IonIcon,
     IonButton,
@@ -24,16 +32,16 @@ import { WizardCardInfoComponent } from 'src/app/components/wizard-card-info/wiz
     IonTitle,
     IonToolbar,
     CommonModule,
-    FormsModule, 
-    WizardCardInfoComponent
-  ]
+    FormsModule,
+    WizardCardInfoComponent,
+  ],
 })
 export class WizardInfoPage {
   isLoading = signal(true);
   hideHeader = signal(true);
   wizardSignal = this.hpApiService.wizardInfoSignal;
   route = inject(ActivatedRoute);
-  private location = inject(Location); 
+  private location = inject(Location);
   private router = inject(Router);
   defaultImage: string = 'assets/image/wizard-not-found.png';
 
@@ -55,7 +63,7 @@ export class WizardInfoPage {
 
   goBack(): void {
     this.router.navigate(['/wizards'], {
-      replaceUrl: true 
+      replaceUrl: true,
     });
   }
 
@@ -68,7 +76,6 @@ export class WizardInfoPage {
     const wizard = this.wizardSignal();
     return wizard?.alternate_names.join(' · ') || '';
   });
-
 
   chips = computed(() => {
     const wizardData = this.wizardSignal();

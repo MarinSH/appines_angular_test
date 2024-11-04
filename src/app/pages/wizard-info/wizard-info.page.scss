@@ -1,29 +1,29 @@
 ion-button.custom-button {
-    --background: var(--ion-color-primary-500) !important;
-    --color: var(--ion-color-primary-100) !important;
-    --placeholder-color: var(--ion-color-primary-100) !important;
-    --icon-color: var(--ion-color-primary-100) !important;
-    --clear-button-color: var(--ion-color-primary-100) !important;
-    --padding-start: 0 !important;
-    --padding-end: 0 !important;
-    --padding-top: 0 !important;
-    --padding-bottom: 0 !important;
-    border-radius: 12px !important;
-    border: 1px solid var(--ion-color-primary-550) !important;
-    background: var(--ion-color-primary-500) !important; 
+  --background: var(--ion-color-primary-500) !important;
+  --color: var(--ion-color-primary-100) !important;
+  --placeholder-color: var(--ion-color-primary-100) !important;
+  --icon-color: var(--ion-color-primary-100) !important;
+  --clear-button-color: var(--ion-color-primary-100) !important;
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--ion-color-primary-550) !important;
+  background: var(--ion-color-primary-500) !important;
 }
 
 ion-chip.custom-chip-species {
-    --background: var(--ion-color-secondary);
-    --color: var(--ion-color-primary-100);
+  --background: var(--ion-color-secondary);
+  --color: var(--ion-color-primary-100);
 }
 
 ion-chip.custom-chip-wizard {
-    --background: var(--ion-color-tertiary);
-    --color: var(--ion-color-primary-100);
+  --background: var(--ion-color-tertiary);
+  --color: var(--ion-color-primary-100);
 }
 
 ion-chip.custom-chip-house {
-    --background: var(--ion-color-primary-200);
-    --color: var(--ion-color-primary-100);
+  --background: var(--ion-color-primary-200);
+  --color: var(--ion-color-primary-100);
 }

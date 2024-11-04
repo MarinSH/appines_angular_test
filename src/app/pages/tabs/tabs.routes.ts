@@ -10,16 +10,18 @@ export const tabsRoutes: Routes = [
         path: 'wizards',
         children: [
           {
-            path :'',
+            path: '',
             loadComponent: () =>
               import('../wizards/wizards.page').then(m => m.WizardsPage),
           },
           {
             path: 'wizard-info/:id',
-            loadComponent: () => 
-              import('../wizard-info/wizard-info.page').then( m => m.WizardInfoPage)
-          }
-        ]
+            loadComponent: () =>
+              import('../wizard-info/wizard-info.page').then(
+                m => m.WizardInfoPage,
+              ),
+          },
+        ],
       },
       {
         path: 'spells',

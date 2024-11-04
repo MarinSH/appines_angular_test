@@ -30,7 +30,7 @@ describe('WizardCardInfoComponent', () => {
       wand: {
         wood: 'holly',
         core: 'phoenix feather',
-        length: 11
+        length: 11,
       },
       patronus: 'stag',
       hogwartsStudent: true,
@@ -38,7 +38,7 @@ describe('WizardCardInfoComponent', () => {
       actor: 'Daniel Radcliffe',
       alternate_actors: [],
       alive: true,
-      image: 'https://link-to-image.com/harry-potter.jpg'
+      image: 'https://link-to-image.com/harry-potter.jpg',
     };
 
     fixture.detectChanges();

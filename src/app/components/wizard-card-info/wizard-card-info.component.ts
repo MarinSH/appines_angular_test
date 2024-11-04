@@ -10,33 +10,37 @@ import { Wizard } from 'src/app/models/wizard';
 export class WizardCardInfoComponent {
   wizard = input.required<Wizard>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 
   formatDate(dateString: string): string {
     if (!dateString) {
-      return '🪄 Obliviate'; 
+      return '🪄 Obliviate';
     }
 
     const [day, month, year] = dateString.split('-').map(Number);
-  
+
     const date = new Date(year, month - 1, day);
-  
-    const monthName = date.toLocaleString('en-US', { month: 'long' }); 
+
+    const monthName = date.toLocaleString('en-US', { month: 'long' });
     const suffix = (day: number): string => {
       if (day > 3 && day < 21) return 'th';
       switch (day % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
+        case 1:
+          return 'st';
+        case 2:
+          return 'nd';
+        case 3:
+          return 'rd';
+        default:
+          return 'th';
       }
     };
-  
-    return `${monthName} ${day}${suffix(day)} ${year}`; 
+
+    return `${monthName} ${day}${suffix(day)} ${year}`;
   }
-  
+
   details = computed(() =>
     [
       { label: 'Gender', value: this.wizard().gender },
@@ -46,8 +50,9 @@ export class WizardCardInfoComponent {
       { label: 'Patronus', value: this.wizard().patronus },
     ].map(attr => ({
       ...attr,
-      value: attr.value !== null && attr.value !== "" ? attr.value : "🪄 Obliviate"
-    }))
+      value:
+        attr.value !== null && attr.value !== '' ? attr.value : '🪄 Obliviate',
+    })),
   );
 
   isLast(index: number): boolean {
