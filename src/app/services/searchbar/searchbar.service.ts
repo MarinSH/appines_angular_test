@@ -13,7 +13,7 @@ export class SearchbarService {
     if (this.searchQueries[type]) {
       this.searchQueries[type].set(query);
     } else {
-      console.error(`Type de recherche inconnu : ${type}`);
+      console.error(`Search type unknown : ${type}`);
     }
   }
 

@@ -28,7 +28,7 @@ export class WizardCardComponent {
         encodeURIComponent(wizardName),
       ]);
     } else {
-      console.error('Le nom du sorcier est indéfini.');
+      console.error('Wizard name undefined.');
     }
   }
 }
