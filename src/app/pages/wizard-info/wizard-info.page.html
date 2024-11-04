@@ -1,28 +1,15 @@
-@if (!hideHeader){
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-button (click)="goBack()" class="custom-button p-0" fill="clear">
-      <ion-icon
-        aria-hidden="true"
-        name="chevron-back-outline"
-        class="size-8 p-3"
-      ></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-}
-
 <ion-content [fullscreen]="true">
-  <div class="relative h-[340px] tablet:h-[458px] lg:h-2/3">
+  <div class="relative h-[340px] tablet:h-[458px] ">
     <ion-button
       (click)="goBack()"
-      class="custom-button absolute left-5 top-16 p-0 tablet:left-10"
+      class="custom-button absolute left-5 top-16 p-0 size-12 rounded-xl  tablet:left-10 tablet:size-14 "
       fill="clear"
     >
       <ion-icon
+        slot="icon-only"
         aria-hidden="true"
         name="chevron-back-outline"
-        class="size-8 p-3"
+        class="font-6 tablet:p-3 tablet:font-8"
       ></ion-icon>
     </ion-button>
     <img
@@ -30,23 +17,20 @@
       class="h-full w-full object-cover"
       [alt]="wizardSignal()?.name || 'Default image'"
     />
-    <div
-      class="absolute bottom-0 left-0 right-0 h-[74px] bg-gradient-to-b from-transparent to-primary-900"
+    <div class="absolute bottom-0 left-0 right-0 h-[74px] bg-gradient-to-b from-transparent to-primary-900"
     ></div>
   </div>
 
-  <div class="mx-5 my-8 space-y-9 text-primary-100 tablet:m-10">
-    <div class="pb-9">
-      <div class="pb-5">
-        <p
-          class="pb-2 font-montserrat text-2xl font-bold tablet:pb-3 tablet:text-3xl"
-        >
+  <div class="text-primary-100 my-8 mx-5 tablet:m-10">
+    <div class="mb-[37px]">
+      <div class="mb-5">
+        <p class="mb-2 font-montserrat text-[28px] leading-7 font-bold tablet:mb-3 tablet:text-3xl">
           {{ wizardSignal()?.name }}
         </p>
-        <p>{{ formattedAlternateNames() }}</p>
+        <p class="text-base tablet:text-lg tablet:leading-6 tracking-[-0.5px]">{{ formattedAlternateNames() }}</p>
       </div>
       @for (chip of chips(); track $index) {
-      <ion-chip [ngClass]="chip.class" class="pl-2 capitalize">
+      <ion-chip [ngClass]="chip.class" class="capitalize cursor-default m-0 rounded-full mr-2 text-base !leading-4 px-3 py-2 tablet:text-lg tablet:px-4 tablet:py-3 !tablet:mr-3">
         {{ chip.label }}
       </ion-chip>
       }
@@ -58,4 +42,5 @@
     <app-wizard-card-info [wizard]="wizardSignal()!"></app-wizard-card-info>
     } }
   </div>
+  
 </ion-content>

@@ -1,11 +1,12 @@
 import {
   Component,
+  computed,
   EnvironmentInjector,
   inject,
   Signal,
   signal,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import {
   IonTabs,
   IonTabBar,
@@ -15,6 +16,7 @@ import {
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { peopleOutline, flameOutline } from 'ionicons/icons';
+import { filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-tabs',
@@ -28,7 +30,27 @@ export class TabsPage {
     inject(EnvironmentInjector),
   );
 
-  constructor() {
+  private currentUrl = signal(this.router.url);
+
+  isNotWizardInfoPage = computed(
+    () => !this.currentUrl().includes('/wizard-info/'),
+  );
+
+  constructor(private router: Router) {
     addIcons({ peopleOutline, flameOutline });
+    this.monitorRouteChanges();
+  }
+
+  private monitorRouteChanges() {
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd,
+        ),
+        map((event: NavigationEnd) => event.url),
+      )
+      .subscribe(url => {
+        this.currentUrl.set(url);
+      });
   }
 }

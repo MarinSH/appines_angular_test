@@ -1,21 +1,26 @@
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button
-      tab="wizards"
-      [routerLink]="['/wizards']"
-      routerDirection="root"
-    >
-      <ion-icon aria-hidden="true" name="people-outline"></ion-icon>
-      <ion-label>Wizards</ion-label>
-    </ion-tab-button>
+@if (!isNotWizardInfoPage()) {
+  <ion-tabs>
+  </ion-tabs>
+} @else {
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button
+        tab="wizards"
+        [routerLink]="['/wizards']"
+        routerDirection="root"
+      >
+        <ion-icon aria-hidden="true" name="people-outline"></ion-icon>
+        <ion-label>Wizards</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button
-      tab="spells"
-      [routerLink]="['/spells']"
-      routerDirection="root"
-    >
-      <ion-icon aria-hidden="true" name="flame-outline"></ion-icon>
-      <ion-label>Spells</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+      <ion-tab-button
+        tab="spells"
+        [routerLink]="['/spells']"
+        routerDirection="root"
+      >
+        <ion-icon aria-hidden="true" name="flame-outline"></ion-icon>
+        <ion-label>Spells</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+}

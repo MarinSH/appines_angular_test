@@ -30,7 +30,7 @@ import { SearchbarService } from 'src/app/services/searchbar/searchbar.service';
     SearchbarComponent,
   ],
 })
-export class SpellsPage implements OnInit {
+export class SpellsPage {
   // TODO : use signal
   spellsSignal = this.hpApiService.spellSignal;
 

@@ -1,5 +1,5 @@
 import { Component, inject, computed, signal } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonContent,
@@ -41,9 +41,8 @@ export class WizardInfoPage {
   hideHeader = signal(true);
   wizardSignal = this.hpApiService.wizardInfoSignal;
   route = inject(ActivatedRoute);
-  private location = inject(Location);
   private router = inject(Router);
-  defaultImage: string = 'assets/image/wizard-not-found.png';
+  defaultImage = signal<string>('assets/image/wizard-not-found.png');
 
   constructor(private hpApiService: HpApiService) {
     addIcons({ chevronBackOutline });
@@ -69,7 +68,7 @@ export class WizardInfoPage {
 
   wizardImage = computed(() => {
     const wizard = this.wizardSignal();
-    return wizard?.image || this.defaultImage;
+    return wizard?.image || this.defaultImage();
   });
 
   formattedAlternateNames = computed(() => {

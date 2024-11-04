@@ -1,4 +1,4 @@
-import { Component, computed, input, OnInit } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { Wizard } from 'src/app/models/wizard';
 
 @Component({
@@ -14,16 +14,16 @@ export class WizardCardInfoComponent {
 
   ngOnInit() {}
 
-  formatDate(dateString: string): string {
+  formattedDate = computed(() => {
+    const dateString = this.wizard().dateOfBirth;
     if (!dateString) {
       return '🪄 Obliviate';
     }
 
     const [day, month, year] = dateString.split('-').map(Number);
-
     const date = new Date(year, month - 1, day);
-
     const monthName = date.toLocaleString('en-US', { month: 'long' });
+
     const suffix = (day: number): string => {
       if (day > 3 && day < 21) return 'th';
       switch (day % 10) {
@@ -39,12 +39,13 @@ export class WizardCardInfoComponent {
     };
 
     return `${monthName} ${day}${suffix(day)} ${year}`;
-  }
+  });
 
   details = computed(() =>
     [
       { label: 'Gender', value: this.wizard().gender },
-      { label: 'Birth', value: this.formatDate(this.wizard().dateOfBirth) },
+      { label: 'Birth', value: this.formattedDate() },
+      { label: 'Ancestry', value: this.wizard().ancestry },
       { label: 'Eye Colour', value: this.wizard().eyeColour },
       { label: 'Hair Colour', value: this.wizard().hairColour },
       { label: 'Patronus', value: this.wizard().patronus },

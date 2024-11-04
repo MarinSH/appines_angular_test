@@ -28,7 +28,7 @@ import { SearchbarService } from 'src/app/services/searchbar/searchbar.service';
     SearchbarComponent,
   ],
 })
-export class WizardsPage implements OnInit {
+export class WizardsPage {
   wizardSignal = this.hpApiService.wizardSignal;
 
   protected filteredWizards = computed(() => {
