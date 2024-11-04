@@ -11,6 +11,7 @@ export class HpApiService {
 
   spellSignal = signal<Spell[]>([]);
   wizardSignal = signal<Wizard[]>([]);
+  wizardInfoSignal = signal<Wizard | null>(null);
 
   constructor(private http: HttpClient) {}
 
@@ -29,5 +30,19 @@ export class HpApiService {
       .subscribe((res: Wizard[]) => {
         this.wizardSignal.set(res);
       });
+  }
+
+  fetchWizardById(id: string): void {
+    this.http.get<Wizard[]>(`${this.apiUrl}/characters`).subscribe({
+      next: (data) => {
+        const wizard = data.find(character => character.id === id);
+        if (wizard) {
+          this.wizardInfoSignal.set(wizard);
+        } else {
+          console.error('Wizard not found ID:', id);
+        }
+      },
+      error: (error) => console.error('Error when retrieving wizard information:', error),
+    });
   }
 }

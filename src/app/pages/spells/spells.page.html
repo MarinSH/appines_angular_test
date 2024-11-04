@@ -13,7 +13,7 @@
 
   <div class="m-4 tablet:m-8">
     <app-searchbar [searchType]="'spell'"></app-searchbar>
-    <div class="space-y-5 sm:space-y-6">
+    <div class="space-y-5 tablet:space-y-6">
       <!-- TODO : replace *ngIF by new Angular Control Flow @if / @else -->
       @if (filteredSpells().length > 0) {
       <!--  TODO : replace *ngFor by new Angular Control Flow -->
@@ -23,7 +23,7 @@
       <!-- TODO : add empty message if no results -->
       @if (filteredSpells().length === 0) {
       <p
-        class="card rounded-xl border border-primary-300 bg-primary-400 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom sm:text-xl"
+        class="card rounded-xl border border-primary-400 bg-primary-800 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom tablet:text-xl"
       >
         No spells found.
       </p>

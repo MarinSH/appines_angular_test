@@ -41,20 +41,11 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 /* @import '@ionic/angular/css/palettes/dark.system.css'; */
 
-:root {
-  --ion-color-primary-100: #dbe6e9;
-  --ion-color-primary-200: #53a7bc;
-  --ion-color-primary-300: #4b91a1;
-  --ion-color-primary-400: #004755;
-  --ion-color-primary-900: #132d32;
-  --ion-background-color: #132d32;
-  --ion-color-secondary: #c64191;
-  --ion-color-accent: #9c95dc;
-}
+
 
 ion-title {
-  --color: #f6f8f9;
-  font-family: 'Montserrat Alternates', sans-serif;
+  --color: var(--ion-color-primary-100);
+  font-family: var(--ion-font-family-variant);
 }
 
 ion-title.title-large {
@@ -70,5 +61,5 @@ ion-title.title-large {
 }
 
 ion-toolbar {
-  --background: #132d32;
+  --background: var(--ion-color-primary-900);
 }

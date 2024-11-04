@@ -1,10 +1,10 @@
 ion-searchbar.custom-searchbar {
-  --background: #2f4d53;
-  --color: #2cbbdd;
-  --placeholder-color: #53a7bc;
-  --icon-color: #2cbbdd;
-  --clear-button-color: #2cbbdd;
+  --background: var(--ion-color-primary-500);
+  --color: var(--ion-color-primary-150);
+  --placeholder-color: var(--ion-color-primary-200);
+  --icon-color: var(--ion-color-primary-150);
+  --clear-button-color: var(--ion-color-primary-150);
   border-radius: 12px;
-  border: 1px solid #2cbbdd;
-  background: #2f4d53;
+  border: 1px solid var(--ion-color-primary-150);
+  background: var(--ion-color-primary-500);
 }

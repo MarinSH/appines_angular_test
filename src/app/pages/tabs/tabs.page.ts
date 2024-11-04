@@ -5,6 +5,7 @@ import {
   Signal,
   signal,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   IonTabs,
   IonTabBar,
@@ -20,7 +21,7 @@ import { peopleOutline, flameOutline } from 'ionicons/icons';
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, RouterLink],
 })
 export class TabsPage {
   public environmentInjector: Signal<EnvironmentInjector> = signal(
