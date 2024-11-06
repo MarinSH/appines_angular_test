@@ -1,4 +1,3 @@
-
 # App'Ines Technical Test (Angular + Ionic / Typescript / TailwindCSS)
 
 This repository is the Ionic project for App'ines technical test.
@@ -12,8 +11,8 @@ This project requires the following to be installed on your machine:
 - npm (installed with Node.js)
 - Ionic CLI
 
-
 Optional :
+
 - Xcode (See [Capacitor Environment Setup](https://capacitorjs.com/docs/getting-started/environment-setup))
 - Android Studio (See [Capacitor Environment Setup](https://capacitorjs.com/docs/getting-started/environment-setup))
 
@@ -37,7 +36,7 @@ To set up this project locally, follow these steps:
 1. Clone this repository to your local machine:
 
 ```
-git clone git@bitbucket.org:appinesfr/appines_angular_test.git
+git clone https://github.com/MarinSH/appines_angular_test.git
 ```
 
 2. Navigate to the project folder:

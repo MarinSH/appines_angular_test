@@ -1,18 +1,17 @@
 ion-tab-button {
-  --color-selected: #DBE6E9;
-  --color: #528791;
+  --color-selected: var(--ion-color-primary-100);
+  --color: var(--ion-color-primary-600);
   padding-top: 10px !important;
 }
 
 ion-tab-bar {
   padding-bottom: max(16px, env(safe-area-inset-bottom)) !important;
-  --background: #132D32;
+  --background: var(--ion-color-primary-900);
 }
 
 ion-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--ion-font-family);
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
 }
-

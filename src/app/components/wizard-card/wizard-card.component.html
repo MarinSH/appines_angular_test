@@ -1,0 +1,26 @@
+<div
+  (click)="goToWizardInfo(wizard()?.id)"
+  class="flex items-center rounded-xl mb-5 border border-primary-400 bg-primary-800 p-4  text-primary-100 shadow-custom hover:cursor-pointer tablet:text-xl tablet:p-5 tablet:mb-6"
+>
+  @if (wizard()?.image) {
+    <img
+      [src]="wizard()?.image"
+      class="h-16 w-16 flex-shrink-0 rounded-full object-cover mr-4 "
+      alt="{{ wizard()?.name }}"
+    />
+  } @else {
+    <span class="flex h-16 w-16 items-center justify-center text-3xl bg-primary-100 rounded-full mr-4 flex-shrink-0">🧙‍♂️</span>
+  }
+  <div class="w-full overflow-hidden ">
+    <diV class="h-6 mb-1 tablet:mb-3">
+      <p class="text-lg leading-6 font-bold font-montserrat tablet:text-xl tablet:leading-6 ">
+        {{ wizard()?.name }}
+      </p>
+    </diV>
+    <div class="h-14 tablet:h-6">
+      <p class="w-full overflow-hidden text-ellipsis  font-montserratSimp font-medium text-base text-primary-200 tablet:text-xl line-clamp-2">
+        {{ formattedAlternateNames() }}
+      </p>
+    </div>
+  </div>
+</div>

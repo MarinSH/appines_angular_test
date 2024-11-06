@@ -12,25 +12,27 @@
   </ion-header>
 
   <div class="m-4 tablet:m-8">
-    <ion-searchbar [(ngModel)]="searchInput" class="py-0 custom-searchbar mb-8" mode="ios" placeholder="Search"></ion-searchbar>
-
-    <div class="space-y-4">
+    <app-searchbar [searchType]="'spell'"></app-searchbar>
+    <div class="space-y-5 tablet:space-y-6">
       <!-- TODO : replace *ngIF by new Angular Control Flow @if / @else -->
-      @if (searchInput().length > 0) {
-        <!--  TODO : replace *ngFor by new Angular Control Flow -->
-        @for (spell of filteredSpells(); track spell.id) {
-            <app-spell-card [spell]="spell"></app-spell-card>
-        }
-        <!-- TODO : add empty message if no results -->
-        @if (filteredSpells().length === 0) {
-            <p class="card bg-primary-400 border border-primary-300 rounded-xl shadow-custom font-montserrat text-primary-100 font-bold text-base sm:text-xl leading-6 py-[15px] px-5 hover:cursor-pointer">No spells found.</p>
-        }
-      } @else {
-        <!--  TODO : replace *ngFor by new Angular Control Flow -->
-          @for (spell of spellsSignal(); track spell.id) {
-              <app-spell-card [spell]="spell"></app-spell-card>
-          }
-      }
-      </div>
+      @if (filteredSpells().length > 0) {
+      <!--  TODO : replace *ngFor by new Angular Control Flow -->
+      @for (spell of filteredSpells(); track spell.id) {
+      <app-spell-card [spell]="spell"></app-spell-card>
+      } } @else {
+      <!-- TODO : add empty message if no results -->
+      @if (filteredSpells().length === 0) {
+      <p
+        class="card rounded-xl border border-primary-400 bg-primary-800 px-5 py-[15px] font-montserrat text-base font-bold leading-6 text-primary-100 shadow-custom tablet:text-xl"
+      >
+        No spells found.
+      </p>
+      } }
+      <!--  TODO : replace *ngFor by new Angular Control Flow -->
+      @if (searchInput().length <= 0) { @for (spell of spellsSignal(); track
+      spell.id) {
+      <app-spell-card [spell]="spell"></app-spell-card>
+      } }
+    </div>
   </div>
 </ion-content>
