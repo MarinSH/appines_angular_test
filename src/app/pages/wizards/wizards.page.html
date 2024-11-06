@@ -10,10 +10,10 @@
       <ion-title size="large">Wizards</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="m-4 tablet:m-8">
+  <div class="p-4 tablet:p-10">
     <app-searchbar [searchType]="'wizard'"></app-searchbar>
 
-    <div class="space-x-5 tablet:space-x-6">
+    <div class="">
       @for (wizard of filteredWizards(); track wizard.id) {
       <app-wizard-card [wizard]="wizard"></app-wizard-card>
       } @if (filteredWizards().length === 0) {
