@@ -51,13 +51,19 @@ cd appines_angular_test
 npm install
 ```
 
-4. (Optional) Install recommended VS Code extensions:
+4. Lunch Prettier
+
+```
+npx prettier --write "src/**/*.ts"
+```
+
+4. or (Optional) Install recommended VS Code extensions:
 
 ```
 code --install-extension .vscode/extensions.json
 ```
 
-4. (Optional) For non-VS Code users (JetBrains, Xcode, etc.), follow these steps:
+4. or (Optional) For non-VS Code users (JetBrains, Xcode, etc.), follow these steps:
    - Ensure you have **Prettier** and **ESLint** installed in your editor.
    - Use the provided `.prettierrc` and `.eslintrc.json` files for consistent formatting and linting across all developers.
    - Install **TailwindCSS** plugin or IntelliSense for your editor to enable autocomplete and syntax highlighting for Tailwind classes.
