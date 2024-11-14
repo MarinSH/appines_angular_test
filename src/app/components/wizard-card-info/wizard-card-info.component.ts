@@ -12,8 +12,6 @@ export class WizardCardInfoComponent {
 
   constructor() {}
 
-  ngOnInit() {}
-
   formattedDate = computed(() => {
     const dateString = this.wizard().dateOfBirth;
     if (!dateString) {
