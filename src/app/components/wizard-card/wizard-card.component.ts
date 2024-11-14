@@ -12,14 +12,16 @@ import { HpApiService } from 'src/app/services/hpApi/hp-api.service';
 export class WizardCardComponent {
   wizard = input.required<Wizard | undefined>();
   wizardSignal = this.hpApiService.wizardSignal;
-  private router = inject(Router);
 
   formattedAlternateNames = computed(() => {
     const wizard = this.wizard();
     return wizard?.alternate_names.join(' · ') || '';
   });
 
-  constructor(private hpApiService: HpApiService) {}
+  constructor(
+    private hpApiService: HpApiService,
+    private router: Router,
+  ) {}
 
   goToWizardInfo(wizardName?: string): void {
     if (wizardName) {

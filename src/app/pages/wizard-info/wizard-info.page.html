@@ -27,7 +27,7 @@
         <p class="mb-2 font-montserrat text-[28px] leading-7 font-bold tablet:mb-3 tablet:text-3xl">
           {{ wizardSignal()?.name }}
         </p>
-        <p class="text-base tablet:text-lg tablet:leading-6 tracking-[-0.5px]">{{ formattedAlternateNames() }}</p>
+          <p class="text-base tablet:text-lg tablet:leading-6 tracking-[-0.5px]">{{ wizardSignal()?.alternate_names?.join(' · ') || '' }}</p>
       </div>
       @for (chip of chips(); track $index) {
       <ion-chip [ngClass]="chip.class" class="capitalize cursor-default m-0 rounded-full mr-2 text-base !leading-4 px-3 py-2 tablet:text-lg tablet:px-4 tablet:py-3 !tablet:mr-3">

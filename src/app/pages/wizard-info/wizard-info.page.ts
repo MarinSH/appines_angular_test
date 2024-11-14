@@ -1,4 +1,4 @@
-import { Component, inject, computed, signal } from '@angular/core';
+import { Component, inject, computed, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -36,15 +36,17 @@ import { WizardCardInfoComponent } from 'src/app/components/wizard-card-info/wiz
     WizardCardInfoComponent,
   ],
 })
-export class WizardInfoPage {
+export class WizardInfoPage implements OnInit {
   isLoading = signal(true);
   hideHeader = signal(true);
   wizardSignal = this.hpApiService.wizardInfoSignal;
   route = inject(ActivatedRoute);
-  private router = inject(Router);
   defaultImage = signal<string>('assets/image/wizard-not-found.png');
 
-  constructor(private hpApiService: HpApiService) {
+  constructor(
+    private hpApiService: HpApiService,
+    private router: Router,
+  ) {
     addIcons({ chevronBackOutline });
   }
 
@@ -69,11 +71,6 @@ export class WizardInfoPage {
   wizardImage = computed(() => {
     const wizard = this.wizardSignal();
     return wizard?.image || this.defaultImage();
-  });
-
-  formattedAlternateNames = computed(() => {
-    const wizard = this.wizardSignal();
-    return wizard?.alternate_names.join(' · ') || '';
   });
 
   chips = computed(() => {
